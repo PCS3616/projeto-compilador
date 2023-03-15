@@ -1,0 +1,35 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\begin{document}
+    \special{background White}
+    \begin{tikzpicture}[scale=0.2]
+        \fill[white];
+        \tikzstyle{every node}+=[inner sep=0pt]
+        \draw [black] (7.8,-30.9) circle (3);
+        \draw (7.8,-30.9) node {$20$};
+        \draw [black] (25.4,-30.9) circle (3);
+        \draw (25.4,-30.9) node {$21$};
+        \draw [black] (25.4,-30.9) circle (2.4);
+        \draw [black] (44.9,-30.9) circle (3);
+        \draw (44.9,-30.9) node {$22$};
+        \draw [black] (64.5,-30.9) circle (3);
+        \draw (64.5,-30.9) node {$23$};
+        \draw [black] (64.5,-30.9) circle (2.4);
+        \draw [black] (10.649,-29.966) arc (104.53375:75.46625:23.715);
+        \fill [black] (22.55,-29.97) -- (21.9,-29.28) -- (21.65,-30.25);
+        \draw (16.6,-28.71) node [above] {$V$};
+        \draw [black] (22.465,-31.518) arc (-80.52789:-99.47211:35.64);
+        \fill [black] (22.47,-31.52) -- (21.59,-31.16) -- (21.76,-32.14);
+        \draw (16.6,-32.5) node [below] {$N$};
+        \draw [black] (28.4,-30.9) -- (41.9,-30.9);
+        \fill [black] (41.9,-30.9) -- (41.1,-30.4) -- (41.1,-31.4);
+        \draw (35.15,-30.4) node [above] {$+;-;*;/$};
+        \draw [black] (47.81,-30.173) arc (101.52864:78.47136:34.476);
+        \fill [black] (61.59,-30.17) -- (60.91,-29.52) -- (60.71,-30.5);
+        \draw (54.7,-28.98) node [above] {$V$};
+        \draw [black] (61.53,-31.319) arc (-83.41287:-96.58713:59.537);
+        \fill [black] (61.53,-31.32) -- (60.68,-30.91) -- (60.79,-31.91);
+        \draw (54.7,-32.21) node [below] {$N$};
+    \end{tikzpicture}
+\end{document}

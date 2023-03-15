@@ -103,20 +103,18 @@ Para o analisador sintático pode ser utilizada a seguinte máquina (C
 representa "Comando", V "variável", E "expressão e N "número", os
 outros símbolos representam a si mesmos):
 
-Máquina para um programa completo:
+#### Máquina para um programa completo
 
-::: center
-:::
+![Máquina sintática para um programa](img/programa.svg)
 
-Máquina para um comando:
+#### Máquina para um comando
 
-::: center
-:::
+![Máquina sintática para um comando](img/comando.svg)
 
-Máquina para uma expressão:
+#### Máquina para uma expressão
 
-::: center
-:::
+![Máquina sintática para uma expressão](img/expressao.svg)
+
 
 ## O trabalho
 
