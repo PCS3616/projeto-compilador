@@ -4,8 +4,7 @@
 
 Este projeto é uma introdução a Compiladores. Para entender corretamente
 o que deve ser feito deve-se entendera a dinâmica de um compilador real,
-tudo isso será aprofundado na disciplina "Linguagens e Compiladores" em
-algum momento no futuro.
+tudo isso será aprofundado na disciplina "Linguagens e Compiladores".
 
 ## Base de Compiladores
 
@@ -14,31 +13,30 @@ linguagem-fonte em uma linguagem-objeto. Quando tanto a linguagem-fonte
 quanto a linguagem-objeto são de baixo nível, o compilador recebe o nome
 especial de montador (como o que você utilizou na última parte dos
 laboratórios) e quando ambas são de alto nível recebe o nome especial de
-tradutor. A utilidade básica de um compilador (esperamos que vocês já
-saibam disso) é transformar um código de entrada (ASM por exemplo) em um
-código que possa ser interpretado pela máquina (MVN por exemplo), porém
-existem outras motivações para se escrever um montador, como para se
-aplicar a técnica chamada "bootstrap", que serve para obter
-compiladores sem passar pela dificuldade de codificar em linguagens de
-baixo nível.
+tradutor. A utilidade básica de um compilador é transformar um código de
+entrada (ASM por exemplo) em um código que possa ser interpretado pela
+máquina (MVN por exemplo). Contudo, existem outras motivações para se
+escrever um montador, como para se aplicar a técnica chamada _bootstrap_,
+que serve para obter compiladores sem passar pela dificuldade de codificar
+em linguagens de baixo nível.
 
 A estrutura macroscópica de um compilador, no geral, tem 3 componentes
 principais:
 
-1.  **Analisador léxico:** este componente é responsável por verificar se
+1.  **Analisador léxico,** verifica se
     todas as palavras escritas no código recebido são coerentes e não
     infringem as regras da linguagem-fonte. Também é função do
     analisador léxico transformar o arquivo na linguagem-fonte em uma
-    lista de tokens, identificando a qual classe (variável, palavra
+    lista de _tokens_, identificando a qual classe (variável, palavra
     reservada, operador, etc.) cada palavra lida pertence.
 
-2.  **Analisador sintático:** este componente é responsável por verificar se
+2.  **Analisador sintático,** verifica se
     as sequências de palavras no código recebido são coerentes e não
     infringem as regras da linguagem-fonte. Este analisador tem como
-    entrada os tokens classificados vindos do analisador anterior.
+    entrada os _tokens_ classificados vindos do analisador anterior.
 
-3.  **Analisador semântico:** este componente é responsável por traduzir as
-    funções da linguagem-fonte (representada pelos tokens classificados)
+3.  **Analisador semântico,** traduz as
+    funções da linguagem-fonte (representada pelos _tokens_ classificados)
     para a linguagem-objeto e escrever o arquivo de saída com o código
     final.
 
@@ -54,12 +52,11 @@ vale ler os capítulos 1 e 5 do livro do Professor João José Neto "Introduçã
 
 ## A linguagem C--
 
-Esta linguagem que vamos utilizar aqui é uma simplificação da linguagem C
-(assumimos que vocês tem familiaridade com ela) com apenas algumas
+Esta é uma simplificação da linguagem C com apenas algumas
 funcionalidades simples. O C-- suporta um tipo de variável, `int` (2
 bytes). Ele permite atribuir valores, resultados de expressões ou outras
 variáveis à variáveis. Atribuição de valores é feita com o símbolo `=`.
-Cada instrução do código deve terminar com `;`. Não é possível inserir
+Cada instrução do código deve terminar com `;`, e não é possível inserir
 comentários.
 
 As palavras reservadas do C-- são:
@@ -91,7 +88,7 @@ serão necessárias para implementação.
 Para o analisador léxico deve-se ler letra a letra o arquivo de entrada,
 identificando se a a cadeia de símbolos não fere as necessidades da
 linguagem[^1] e, ao término de uma palavra, identificar se ela se trata
-de uma palavra reservada ou uma variável. Atente ao fato que a aparição
+de uma palavra reservada ou uma variável. Atente-se ao fato que a aparição
 de um operador, mesmo sem espaço, deve terminar a palavra sendo lida.
 
 [^1]: Isso só acontece se a palavra começar com um dígito e
@@ -99,8 +96,8 @@ de um operador, mesmo sem espaço, deve terminar a palavra sendo lida.
 
 ### Analisador Sintático
 
-Para o analisador sintático pode ser utilizada a seguinte máquina (C
-representa "Comando", V "variável", E "expressão e N "número", os
+Para o analisador sintático pode ser utilizada a seguinte máquina, em que C
+representa "Comando", V, "variável", E, "expressão e N, "número" (os
 outros símbolos representam a si mesmos):
 
 #### Máquina para um programa completo
@@ -124,16 +121,20 @@ regras de codificação de C-- colocadas acima. Evidentemente, o processo
 inteiro é muito complexo para ser feito como um único projeto, assim é
 necessário **escolher uma entre 3 sub-propostas** para realizar.
 
+O trabalho pode ser feito em duplas ou individualmente. Definir escopo
+de uso do comunicador, mensagens de erro coerentes, eventuais limitações
+e funcionalidades não comentadas acima fazem parte do trabalho.
+
 ### Analisador Léxico: Proposta 2a
 
 A proposta 2a consiste na implementação do analisador léxico, que deve
 receber o arquivo com o código em linguagem-objeto e gerar um arquivo
-com os tokens classificados.
+com os _tokens_ classificados.
 
 ### Analisador Sintático: Proposta 2a
 
 A proposta 2b consiste na implementação do analisador sintático, que
-deve receber o arquivo de tokens classificados e identificar se existe
+deve receber o arquivo de _tokens_ classificados e identificar se existe
 alguma inconsistência de acordo com a máquina de estados apresentada e,
 opcionalmente, gerar outras informações sobre as variáveis para auxiliar
 o analisador semântico.
@@ -141,21 +142,18 @@ o analisador semântico.
 ### Analisador Semântico: Proposta 2c
 
 A proposta 2c consiste na implementação do analisador semântico, que
-deve receber o arquivo de tokens classificados e outras informações
+deve receber o arquivo de _tokens_ classificados e outras informações
 vindas do analisador sintático e gerar o código na linguagem-alvo,
 traduzindo as estruturas das linguagens.
 
 ### Desafio
+
 Uma função muito utilizada em linguagens de alto nível é a
 definição de variáveis do tipo caractere. O trabalho do desafio é
 extender o analisador implementado para suportar a definição de
 variáveis desse tipo, que tem tamanho de 1 byte. Se forem aplicadas
-operações sobre variáveis tipo char, as contas devem ser feitas com o
-valor ASCII da letra.
-
-O trabalho pode ser feito em duplas ou individualmente. Definir escopo
-de uso do comunicador, mensagens de erro coerentes, eventuais limitações
-e funcionalidades não comentadas acima FAZEM parte do trabalho.
+operações sobre variáveis tipo `char`, as contas devem ser feitas com o
+valor ASCII do caractere.
 
 ## Perguntas
 
